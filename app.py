@@ -1,7 +1,5 @@
-from sklearn.linear_model import LinearRegression, SGDRegressor
 import pickle
 from fastapi import FastAPI
-from typing import Union
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -19,7 +17,7 @@ class InputData(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"Default app for testing ML model deployment using Docker"}
+    return {"message": "FastAPI ML prediction service is running!"}
 
 @app.post("/predict/")
 async def predict_value(input_data: InputData):
